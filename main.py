@@ -4,7 +4,7 @@ import json
 import requests
 from pathlib import Path
 
-VIDEO_ID = os.environ["VIDEO_ID"]
+VIDEO_ID = os.environ["YOUTUBE_VIDEO_ID"]
 THUMBNAIL_URL = f"https://i.ytimg.com/vi/{VIDEO_ID}/maxresdefault.jpg"
 HASH_FILE = Path("thumbnail_hash.json")
 DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]

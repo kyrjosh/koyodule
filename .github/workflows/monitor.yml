@@ -26,7 +26,7 @@ jobs:
 
       - name: サムネイル監視スクリプトを実行
         env:
-          VIDEO_ID: ${{ secrets.VIDEO_ID }}
+          YOUTUBE_VIDEO_ID: ${{ secrets.YOUTUBE_VIDEO_ID }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python main.py
 
