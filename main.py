@@ -5,9 +5,10 @@ import requests
 from pathlib import Path
 
 VIDEO_ID = os.environ["YOUTUBE_VIDEO_ID"]
+DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
+
 THUMBNAIL_URL = f"https://i.ytimg.com/vi/{VIDEO_ID}/maxresdefault.jpg"
 HASH_FILE = Path("thumbnail_hash.json")
-DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
 
 
 def fetch_thumbnail() -> bytes:
@@ -35,13 +36,12 @@ def save_hash(hash_value: str) -> None:
 
 
 def post_to_discord(image_bytes: bytes) -> None:
-    resp = requests.post(
+    requests.post(
         DISCORD_WEBHOOK_URL,
         data={"content": "@everyone こよじゅーるが更新されました。"},
         files={"file": ("thumbnail.jpg", image_bytes, "image/jpeg")},
         timeout=15,
-    )
-    resp.raise_for_status()
+    ).raise_for_status()
 
 
 def main():
