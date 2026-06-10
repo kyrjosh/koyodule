@@ -9,7 +9,7 @@ import requests
 VIDEO_ID = os.environ["YOUTUBE_VIDEO_ID"]
 DISCORD_WEBHOOK_URL = os.environ["DISCORD_WEBHOOK_URL"]
 
-THUMBNAIL_URL = f"https://i.ytimg.com/vi/{VIDEO_ID}/maxresdefault.jpg?v={random.randint(0, 0xFFFFFFFF):08x}"
+THUMBNAIL_URL = f"https://i.ytimg.com/vi/{VIDEO_ID}/maxresdefault.jpg?v={random.randint(0, 0xFFFF):04x}"
 HASH_FILE = Path("thumbnail_hash.json")
 
 
